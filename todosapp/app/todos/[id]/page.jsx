@@ -1,3 +1,21 @@
+// To generate static pages at build time for the given ids
+export async function generateStaticParams() {
+
+    /** In a real app, you would fetch this data from an API or database
+     *  For example:
+        const response = await fetch('https://jsonplaceholder.typicode.com/todos')
+        const todos = await response.json()
+        return todos.map(todo => ({
+            id: todo.id.toString(),
+        }))
+    **/
+    return [
+        { id: 'one' },
+        { id: 'two' },
+        { id: 'three' },
+    ]
+}
+
 function page({ params }) {
   return (
     <div>
