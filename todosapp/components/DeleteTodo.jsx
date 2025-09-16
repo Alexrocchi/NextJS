@@ -19,6 +19,8 @@ function DeleteTodo( { id } ) {
         if(response.ok) {
             // Refresh the page to show the updated list of todos
             router.refresh();
+            // Example navigation on client-side: Navigate back to the main todos page
+            router.push('/');
         }else{
             console.error('Failed to delete the todo');
         }

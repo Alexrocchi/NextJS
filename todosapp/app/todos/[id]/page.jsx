@@ -10,9 +10,9 @@ export async function generateStaticParams() {
     }))
     **/
     return [
-        { id: 'one' },
-        { id: 'two' },
-        { id: 'three' },
+        { id: '1' },
+        { id: '2' },
+        { id: '3' },
     ]
 }
 

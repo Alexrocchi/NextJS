@@ -1,4 +1,5 @@
 import DeleteTodo from "@/components/DeleteTodo";
+import Link from "next/link";
 
 async function TodosPage() {
     
@@ -28,7 +29,9 @@ async function TodosPage() {
                     {data.map((todo) => (
                         <tr key={todo.id} className="border-b border-gray-200 hover:bg-gray-100">
                             <td className="py-3 px-6">
-                                {todo.id}
+                                <Link href={`/todos/${todo.id}`} className="font-medium hover:underline">
+                                    {todo.id}
+                                </Link>
                             </td>
                             <td className="py-3 px-6">
                                 {todo.name}
