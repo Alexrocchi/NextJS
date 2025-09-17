@@ -1,4 +1,5 @@
 import DeleteTodo from "@/components/DeleteTodo";
+import AddTodo from "@/components/AddTodo";
 import Link from "next/link";
 import { Suspense } from "react";
 
@@ -19,7 +20,7 @@ async function TodosPage() {
     /* throw new Error("Test error"); */
     
     return (
-        <section className="mt-24 w-full h-full flex justify-center">
+        <section className="mt-24 w-full h-full flex justify-center flex-col items-center gap-4">
             <table className="min-w-max bg-white border border-gray-200 rounded-lg overflow-hidden">
                 <thead className="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
                     <tr className="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
@@ -50,6 +51,9 @@ async function TodosPage() {
                     ))}
                 </tbody>
             </table>
+            <div className="ml-4">
+                <AddTodo />
+            </div>
         </section>
     )
 }
