@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 
 // To generate static pages at build time for the given ids
 export async function generateStaticParams() {
@@ -33,7 +34,7 @@ async function page({ params }) {
         <div className="mt-24 w-full h-full flex justify-center items-center flex-col gap-4">
          <p className="font-bold">Youre visiting the dynamic route with id: {id}</p>
 
-            <a href="/todos" className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded">Go back to Todos App</a>
+            <Link href="/todos" className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded">Go back to Todos App</Link>
         </div>
     )
 }
