@@ -30,8 +30,10 @@ async function page({ params }) {
     /* throw new Error("Test error"); */
 
     return (
-        <div>
-        Params ID: {id}
+        <div className="mt-24 w-full h-full flex justify-center items-center flex-col gap-4">
+         <p className="font-bold">Youre visiting the dynamic route with id: {id}</p>
+
+            <a href="/todos" className="bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded">Go back to Todos App</a>
         </div>
     )
 }
