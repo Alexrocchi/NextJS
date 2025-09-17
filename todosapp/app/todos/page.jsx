@@ -1,8 +1,11 @@
 import DeleteTodo from "@/components/DeleteTodo";
 import Link from "next/link";
+import { Suspense } from "react";
 
 async function TodosPage() {
     
+    /* const dummyWait = await new Promise((resolve) => setTimeout(resolve, 3000)); */
+
     const response = await fetch('http://localhost:3000/api/todos', { 
         // If we not use 'no-store', Next.js will cache the response by default and we won't see updates. Whith this attribute we're telling Next.js to always fetch the latest data.
         cache: 'no-store' 
@@ -12,8 +15,8 @@ async function TodosPage() {
     });
     const data = await response.json();
     
-    console.log(data);
-    
+    // Dummy error for testing purposes
+    /* throw new Error("Test error"); */
     
     return (
         <section className="mt-24 w-full h-full flex justify-center">
@@ -37,8 +40,11 @@ async function TodosPage() {
                                 {todo.name}
                             </td>
                             <td className="py-3 px-6">
-                                {/* A server-side doen't know when to re render, so we can't use an event handler like onClick. We need to use a form to send a request to the server */}
-                                <DeleteTodo id={todo.id} />
+                                {/* We wrap the DeleteTodo component in a Suspense component to handle the loading state */}
+                                <Suspense fallback={<p>Loading button...</p>}>
+                                    {/* A server-side doen't know when to re render, so we can't use an event handler like onClick. We need to use a form to send a request to the server */}
+                                    <DeleteTodo id={todo.id} />
+                                </Suspense>
                             </td>                            
                         </tr>
                     ))}

@@ -2,10 +2,12 @@
 
 import { useRouter } from "next/navigation";
 
-function DeleteTodo( { id } ) {
+async function DeleteTodo( { id } ) {
 
     // To refresh the page after deleting a Todos
     const router = useRouter();
+    
+    const dummyWait = await new Promise((resolve) => setTimeout(resolve, 3000));
 
     async function handleDelete() {        
         const response = await fetch('http://localhost:3000/api/todos', {

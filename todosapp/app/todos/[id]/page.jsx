@@ -1,3 +1,5 @@
+import { notFound } from "next/navigation";
+
 // To generate static pages at build time for the given ids
 export async function generateStaticParams() {
     
@@ -18,6 +20,14 @@ export async function generateStaticParams() {
 
 async function page({ params }) {
     const { id } = await params;
+
+    if(parseInt(id) > 3) {
+        // If the id doesn't exist, we can redirect to a custom 404 page
+        notFound();
+    }
+
+    // Dummy error for testing purposes
+    /* throw new Error("Test error"); */
 
     return (
         <div>

@@ -76,3 +76,9 @@ When building the app:
 - ○ indicates a static page (pre-rendered at build time).
 - ƒ indicates a dynamic route (server-rendered on demand).
 📖 [Dynamic Routes Documentation](https://nextjs.org/docs/app/getting-started/project-structure?utm_source=chatgpt.com#routing-files)
+
+## File conventions
+- error
+- loading
+- not-found
+[See Documentation](https://nextjs.org/docs/app/api-reference/file-conventions)
